@@ -1,5 +1,4 @@
 :root {
-  /* Accent color for hover and highlights */
   --color-accent: oklch(44.96% 0.21036 264.993);
 }
 
@@ -8,7 +7,6 @@ html {
 }
 
 body {
-  /* Step 1: Prevent content from getting too wide */
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: auto;
@@ -16,24 +14,17 @@ body {
   display: block;
 }
 
-/* ===============================
-   Navigation Bar (Step 2)
-================================= */
-
-/* Remove default list formatting */
 nav ul,
 nav li {
   display: contents;
 }
 
-/* Flexbox navigation layout */
 nav {
   display: flex;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid oklch(80% 3% 200);
 }
 
-/* Navigation link styling */
 nav a {
   flex: 1;
   text-decoration: none;
@@ -42,21 +33,15 @@ nav a {
   padding: 0.5em;
 }
 
-/* Current page indicator */
 nav a.current {
   border-bottom: 0.4em solid oklch(80% 3% 200);
   padding-bottom: 0.1em;
 }
 
-/* Hover effect using accent color */
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
 }
-
-/* ===============================
-   Page Content
-================================= */
 
 h1 {
   margin-top: 0;
@@ -71,13 +56,9 @@ img {
   margin-top: 1rem;
 }
 
-/* ===============================
-   Contact Form (Step 3)
-================================= */
-
 form {
   display: grid;
-  grid-template-columns: auto 1fr; /* label column + input column */
+  grid-template-columns: auto 1fr;
   gap: 1em;
   max-width: 60ch;
   margin-top: 2rem;
@@ -175,4 +156,18 @@ nav a {
 nav a:hover {
   background: #35839b;
   border-radius: 0.3em;
+}
+
+.resume p {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  background: #f9f9f9;
+}
+
+.resume2 p{
+  border: 1px dotted #333;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  background: #f9f9f9;
 }
