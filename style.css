@@ -1,15 +1,20 @@
 :root {
+  color-scheme: light dark;
   --color-accent: oklch(44.96% 0.21036 264.993);
+  --color-bg: Canvas;
+  --color-text: CanvasText;
+  --border-color: oklch(80% 3% 200);
 }
 
 html {
   accent-color: var(--color-accent);
   color-scheme: light dark;
   border-bottom-color: var(--border-color);
-
 }
 
 body {
+  background: var(--color-bg);
+  color: var(--color-text);
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: auto;
@@ -25,7 +30,7 @@ nav li {
 nav {
   display: flex;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -37,7 +42,7 @@ nav a {
 }
 
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
+  border-bottom: 0.4em solid var(--border-color);
   padding-bottom: 0.1em;
 }
 
@@ -84,8 +89,10 @@ button {
 input,
 textarea {
   padding: 0.5em;
-  border: 1px solid oklch(80% 3% 200);
+  border: 1px solid var(--border-color);
   border-radius: 0.3em;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 button {
@@ -102,16 +109,19 @@ button {
 button:hover {
   background: oklch(88.397% 0.14894 185.835);
 }
+
 .color-scheme {
-  display: inline-block;
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: var(--color-bg, #fff);
-  padding: 0.5em 1em;
+  z-index: 1000;
+  font-family: inherit;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--border-color);
   border-radius: 0.5em;
+  padding: 0.5em 1em;
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
-  font-family: system-ui, sans-serif;
 }
 
 .projects {
@@ -125,8 +135,8 @@ button:hover {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-  background: #fafafa;
-  border: 1px solid #ddd;
+  background: var(--color-bg);
+  border: 1px solid var(--border-color);
   border-radius: 0.5em;
   padding: 1em;
 }
@@ -158,7 +168,7 @@ h2 {
 .projects p {
   margin: 0;
   font-size: 0.9em;
-  color: #333;
+  color: var(--color-text);
 }
 
 nav a {
@@ -167,30 +177,21 @@ nav a {
 }
 
 nav a:hover {
-  background: #35839b;
+  background: color-mix(in oklch, var(--color-accent) 20%, transparent);
   border-radius: 0.3em;
 }
 
 .resume p {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   padding: 0.5em;
   border-radius: 0.3em;
-  background: #f9f9f9;
+  background: color-mix(in oklch, var(--color-bg) 90%, white);
 }
 
 .resume2 p{
-  border: 1px dotted #333;
+  border: 1px dotted var(--color-text);
   padding: 0.5em;
   border-radius: 0.3em;
-  background: #f9f9f9;
+  background: color-mix(in oklch, var(--color-bg) 90%, white);
 }
 
-.color-scheme{
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1000;
-  font-family: inherit;
-  background-color: Canvas;
-  color: CanvasText;
-}
