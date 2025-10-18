@@ -4,6 +4,9 @@
 
 html {
   accent-color: var(--color-accent);
+  color-scheme: light dark;
+  border-bottom-color: var(--border-color);
+
 }
 
 body {
@@ -99,6 +102,17 @@ button {
 button:hover {
   background: oklch(88.397% 0.14894 185.835);
 }
+.color-scheme {
+  display: inline-block;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-bg, #fff);
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+  font-family: system-ui, sans-serif;
+}
 
 .projects {
   display: grid;
@@ -148,7 +162,6 @@ h2 {
 }
 
 nav a {
-  color: rgb(0, 0, 0);
   text-decoration: none;
   padding: 0.5em 1em;
 }
@@ -170,4 +183,14 @@ nav a:hover {
   padding: 0.5em;
   border-radius: 0.3em;
   background: #f9f9f9;
+}
+
+.color-scheme{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  font-family: inherit;
+  background-color: Canvas;
+  color: CanvasText;
 }
