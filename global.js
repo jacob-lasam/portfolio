@@ -8,11 +8,10 @@ const pages = [
   { url: 'contact/', title: 'Contact' },
   { url: 'resume/', title: 'Resume' }
 ];
-const BASE_PATH = "/portfolio/";
 const nav = document.createElement('nav');
 document.body.prepend(nav);
 for (let p of pages) {
-  let url = p.url.startsWith('http') ? p.url : BASE_PATH + p.url;
+  let url = p.url.startsWith('http') ? p.url : "/portfolio/" + p.url;
   let a = document.createElement('a');
   a.href = url;
   a.textContent = p.title;
