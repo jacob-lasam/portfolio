@@ -11,7 +11,7 @@ const pages = [
 const nav = document.createElement('nav');
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
-  : "jacob-lasam.github.io"; 
+  : "/portfolio/"; 
 document.body.prepend(nav);
 for (let p of pages) {
   let url = p.url.startsWith('http') ? p.url : BASE_PATH + p.url;
