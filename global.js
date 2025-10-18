@@ -3,10 +3,10 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 let pages = [
-  { url: '', title: 'Home' },
-  { url: 'projects/', title: 'Projects' },
-  { url: 'contact/', title: 'Contact' },
-  { url: 'resume/', title: 'Resume'}
+  { url: '/portfolio/', title: 'Home' },
+  { url: '/portfolio/projects/', title: 'Projects' },
+  { url: '/portfolio/contact/', title: 'Contact' },
+  { url: '/portfolio/resume/', title: 'Resume'}
 ];
 const BASE_PATH =
   location.hostname === "localhost" || location.hostname === "127.0.0.1"
