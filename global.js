@@ -82,10 +82,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     return;
   }
 
-  // Clear old content
   containerElement.innerHTML = '';
-
-  // Loop through projects
   projects.forEach(project => {
     const article = document.createElement('article');
     const headingTag = ['h1','h2','h3','h4','h5','h6'].includes(headingLevel) ? headingLevel : 'h2';
@@ -96,9 +93,11 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     `;
     containerElement.appendChild(article);
   });
-
-  // Handle empty data
   if (projects.length === 0) {
     containerElement.innerHTML = '<p>No projects to display right now.</p>';
   }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
 }
