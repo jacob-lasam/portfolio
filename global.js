@@ -71,7 +71,7 @@ export async function fetchJSON(url) {
   }
 }
 
-export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+export function renderProjects(projects, containerElement, headingLevel) {
   if (!Array.isArray(projects)) {
     console.error('Invalid projects data');
     return;
