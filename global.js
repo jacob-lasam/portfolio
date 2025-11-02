@@ -72,6 +72,7 @@ export async function fetchJSON(url) {
 }
 
 export function renderProjects(projects, containerElement, headingLevel = 2) {
+  
   if (!Array.isArray(projects)) {
     console.error('Invalid projects data');
     return;
@@ -82,39 +83,35 @@ export function renderProjects(projects, containerElement, headingLevel = 2) {
     return;
   }
 
-  containerElement.innerHTML = ''; // Clear existing content
+  containerElement.innerHTML = '';
 
   for (const project of projects) {
     const article = document.createElement('article');
     article.classList.add('project-card');
 
-    // Title
+    // Only one title
     const title = document.createElement(`h${headingLevel}`);
     title.textContent = project.title;
+    article.appendChild(title);
 
     // Image
     const img = document.createElement('img');
     img.src = project.imageUrl;
     img.alt = project.title;
+    article.appendChild(img);
 
-    // Description + Year wrapper
+    // Description & year
     const textContainer = document.createElement('div');
     textContainer.classList.add('project-text');
 
     const description = document.createElement('p');
     description.textContent = project.description;
-
-    // Year (new part)
     const year = document.createElement('p');
     year.textContent = project.year;
     year.classList.add('project-year');
 
     textContainer.appendChild(description);
     textContainer.appendChild(year);
-
-    // Append all
-    article.appendChild(title);
-    article.appendChild(img);
     article.appendChild(textContainer);
 
     containerElement.appendChild(article);
