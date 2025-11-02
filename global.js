@@ -71,7 +71,7 @@ export async function fetchJSON(url) {
   }
 }
 
-export function renderProjects(projects, containerElement, headingLevel) {
+export function renderProjects(projects, containerElement, headingLevel = 2) {
   if (!Array.isArray(projects)) {
     console.error('Invalid projects data');
     return;
@@ -82,28 +82,43 @@ export function renderProjects(projects, containerElement, headingLevel) {
     return;
   }
 
-  const article = document.createElement("article");
+  containerElement.innerHTML = ''; // Clear existing content
 
-  // Title
-  const title = document.createElement("h2");
-  title.textContent = project.title; // e.g., "Lorem ipsum dolor sit."
+  for (const project of projects) {
+    const article = document.createElement('article');
+    article.classList.add('project-card');
 
-  // Image
-  const img = document.createElement("img");
-  img.src = project.imageUrl;
-  img.alt = project.title;
+    // Title
+    const title = document.createElement(`h${headingLevel}`);
+    title.textContent = project.title;
 
-  // Description
-  const description = document.createElement("p");
-  description.textContent = project.description;
+    // Image
+    const img = document.createElement('img');
+    img.src = project.imageUrl;
+    img.alt = project.title;
 
-  // Append elements to article
-  article.appendChild(title);
-  article.appendChild(img);
-  article.appendChild(description);
+    // Description + Year wrapper
+    const textContainer = document.createElement('div');
+    textContainer.classList.add('project-text');
 
-  // Append article to container
-  containerElement.appendChild(article);
+    const description = document.createElement('p');
+    description.textContent = project.description;
+
+    // Year (new part)
+    const year = document.createElement('p');
+    year.textContent = project.year;
+    year.classList.add('project-year');
+
+    textContainer.appendChild(description);
+    textContainer.appendChild(year);
+
+    // Append all
+    article.appendChild(title);
+    article.appendChild(img);
+    article.appendChild(textContainer);
+
+    containerElement.appendChild(article);
+  }
 }
 
 export async function fetchGitHubData(username) {
